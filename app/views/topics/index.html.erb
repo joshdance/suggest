@@ -17,6 +17,8 @@
       <tr>
         <td><%= topic.title %></td>
         <td><%= topic.description %></td>
+        <td><%= pluralize(topic.votes.count, "vote") %></td> <!-- pluralize takes 2 arguments, number and the form. Does some pluralization magic.  -->
+        <td><%= button_to('+1', upvote_topic_path(topic), method: :post) %></td> <!-- button_to create a form, that submits by the button, to the URL you give it, with the methods you give it.  -->
         <td><%= link_to 'Show', topic %></td>
         <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
         <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
