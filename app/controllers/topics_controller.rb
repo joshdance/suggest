@@ -66,7 +66,7 @@ class TopicsController < ApplicationController
   end
 
   def upvote
-    @topic = Topic.find_by(params[:id])
+    @topic = Topic.find_by title: 'Edited in console'
     @topic.votes.create
     redirect_to(topics_path)
   end
